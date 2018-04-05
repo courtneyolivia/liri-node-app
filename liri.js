@@ -1,9 +1,9 @@
 // Load required node modules
+var fs = require("fs");
+var request = require("request");
 var keys = require('./keys.js');
-
 var Twitter = require('twitter');
-
-var spotify = require('spotify');
+var Spotify = require('spotify');
 
 
 // Twitter Data
@@ -24,21 +24,40 @@ client.get('statuses/user_timeline', params, function(error, tweets, response) {
 });
 }
 
+var getArtistNames = function(artist) {
+  return artist.name;
+}
+
 // Spotify Data
-spotify.search({ type: 'track', query: 'dancing in the moonlight' }, function(
+var getMeSpotify = function(songName) {
+
+spotify.search({ type: 'track', query: songName }, function(
   err, data) {
   if (err) {
     console.log('Error occurred: ' + err);
     return;
   }
 
-  console.log(data);
+  var songs = data.tracks.items;
+  for(var i=0; i<songs.length; i++) {
+    console.log(i);
+    console.log('artist(s): ' + songs[i].artists.map(
+      getArtistNames));
+      console.log('song name: ' + songs[i].name);
+      console.log('preview song: ' + songs[i].preview_url);
+      console.log('album: ' + songs[i].album.name);
+      console.log('--------------------------------------------');
+    }
 });
+}
 
 var pick = function(caseData, functionData) {
   switch(caseData) {
     case 'my-tweets' :
       getMyTweets();
+      break;
+      case 'spotify-this-song':
+      getMeSpotify(functionData);
       break;
     default:
     console.log('LIRI does not know that');
