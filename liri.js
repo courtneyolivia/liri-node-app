@@ -1,9 +1,11 @@
 // Load required node 
 var keys = require("./keys.js");
 var Twitter = require("twitter");
-var Spotify = require("spotify");
+var spotify = require("spotify");
 var request = require("request");
 var fs = require("fs");
+
+require("dotenv").config();
 
 
 
@@ -32,6 +34,8 @@ var getArtistNames = function(artist) {
 // Spotify Data
 var getMeSpotify = function(songName) {
 
+var spotify = new Spotify(keys.spotify);
+
 spotify.search({ type: "track", query: songName }, function(
   err, data) {
   if (err) {
@@ -43,7 +47,7 @@ spotify.search({ type: "track", query: songName }, function(
   for(var i=0; i<songs.length; i++) {
     console.log(i);
     console.log("artist(s): " + songs[i].artists.map(
-      getArtistNames));
+        getArtistNames));
       console.log("song name: " + songs[i].name);
       console.log("preview song: " + songs[i].preview_url);
       console.log("album: " + songs[i].album.name);
