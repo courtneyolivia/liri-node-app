@@ -8,9 +8,9 @@ exports.twitterKeys = {
 };
 
 
-
+/*
 exports.spotifyKeys = {
   id: "fa11a3869f644353b52dbd9c2c4b4ef4",
   secret: '1f92c72fcd3a476396f528ee6fdc827e'
 };
-
+*/
