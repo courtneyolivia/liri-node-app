@@ -1,12 +1,12 @@
 # liri-node-app
 
-Overview
+<h2><b>Overview</b></h2>
 
 Have you heard of SIRI? Well, meet LIRI. While SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
 
 
 
-Technologies Used:
+<h3><b>Technologies Used:</b></h3>
 Javascript
 Node
 Command Line
@@ -15,7 +15,7 @@ Spotify API
 OMDB API
 
 
-Node Packages Used:
+<h3><b>Node Packages Used:</b></h3>
 dotenv
 node-spotify-api
 request
@@ -25,7 +25,7 @@ twitter
 
 
 
-liri.js can take in one of the following commands:
+<b><h3>liri.js can take in one of the following commands:</h3></b>
 * `my-tweets`
 
 * `spotify-this-song`
@@ -38,7 +38,7 @@ liri.js can take in one of the following commands:
 
 
 
-What Each Command Should Do
+<b><h3>What Each Command Should Do</h3></b>
 
 1. node liri.js my-tweets
 This will show your last 20 tweets and when they were created at in your terminal/bash window.
